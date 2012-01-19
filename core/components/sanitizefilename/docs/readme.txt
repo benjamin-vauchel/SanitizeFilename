@@ -1,6 +1,9 @@
 --------------------
-Snippets: SanitizeFilename
+SanitizeFilename
 --------------------
+Version: 1.0.1-rc1
+Released: January 19, 2011
+Since: December 19, 2011
 Author: Benjamin Vauchel <contact@omycode.fr>
 
 Bugs and Feature Requests: https://github.com/omycode/sanitizefilename

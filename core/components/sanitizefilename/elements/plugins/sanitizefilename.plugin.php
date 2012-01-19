@@ -5,7 +5,7 @@
  * Copyright 2011 Benjamin Vauchel <contact@omycode.fr>
  *
  * @author Benjamin Vauchel <contact@omycode.fr>
- * @version Version 1.0.0-beta1
+ * @version Version 1.0.1-rc1
  * 12/15/11
  *
  * SanitizeFilename is free software; you can redistribute it and/or modify it
@@ -66,20 +66,16 @@ function slugify($text)
   return $text;
 }
 
-// We call the file handler service of MODx
-$modx->getService('fileHandler','modFileHandler');
-
 // We rename each of uploaded files
 foreach($files as $file)
 {
-  if($file['error'] == 0)
-  {
-    $mod_file = $modx->fileHandler->make($directory->getPath().'/'.$file['name']);
-    if (is_object($mod_file) && ($mod_file instanceof modFile))
+    if($file['error'] == 0)
     {
-      $path_info = pathinfo($file['name']);
-      $newPath = $directory->getPath().'/'.slugify($path_info['filename']).'-'.uniqid().'.'.$path_info['extension'];
-      $mod_file->rename($newPath);
+      $pathInfo = pathinfo($file['name']);
+     
+      $oldPath = $directory . $file['name'];
+      $newPath = slugify($pathInfo['filename']).'-'.uniqid().'.'. $pathInfo['extension'];
+
+      $source->renameObject($oldPath, $newPath);
     }
-  }
 }

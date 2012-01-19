@@ -1,5 +1,9 @@
 Changelog for SanitizeFilename
 
-SanitizeFilename 1.0.0-beta1
--------------------
+SanitizeFilename 1.0.1-rc1 (January 19, 2011)
+======================================
+Refactor for MODx Revolution 2.2.x and Media Sources
+
+SanitizeFilename 1.0.0-beta1 (December 19, 2011)
+======================================
 Initial Version
